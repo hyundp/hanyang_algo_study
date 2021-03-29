@@ -1,1 +1,56 @@
 
+#실수 표현 방식
+ 1e9 = 10의 9승
+ 3954e-3 = 3.954
+#round()
+ 실수 a를 소숫점 5째 자리에서 반올림
+ round(a,4)
+#나머지 연산자 %, 목 연산자 //, 거듭제곱 연산자 **(2**10 = 1024)
+#list 초기화 코드
+ list a
+ n=5;
+ a=[0]*n
+ print(a)
+ => [0,0,0,0,0] 출력됨.
+#리스트 컴프리헨션: 리스트 초기화
+ array = []
+ for i in range(20):
+  if i%2 ==1:
+    array.append(i)
+ 
+ 를 더 간단하게..
+ array=[i for i in range(20) if i % 2 ==1]
+ 
+ 2차원 리스트를 초기화할 때 효과적으로 사용!
+ ex)[[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
+ array = [[0]*3 for _ in range(4)]
+ 
+#리스트 관련 메서드
+ list a
+ a.append()
+ a.sort()  a.sort()(reverse=True)
+ a.insert()
+ a.count()
+ a.remove()
+#특정 값들을 빼고 나머지를 리스트에 저장.
+ 특정 값들 빼기 => a=[1,2,3,4,5,5] remove_set={3,5}
+ result=[i for i in a if i not in remmove_set] => result=[1,2,4]
+#문자열 따옴표
+ \이용하면 원하는 만큼 포함시킬 수 있다.
+# 대입연산자 =
+ 'tuple' object does not support item assignment(원소의 대입). (튜플 자료형은 원소의 대입을 지원하지 않는다.)
+ '다익스트' 최단거리 알고리즘에서 튜플 자주 사용.
+#사전 자료형
+ ex)블록 이동하기, 2,3부의 문제들
+ #if 원소 in 사전
+ data = dict()
+ data['사과']='Apple'
+ data['바나나']='Banana'
+ data['코코넛']='coconut'
+ if '사과' in data:
+  print("'사과'를 키로 갖는 데이터가 존재합니다.")
+ *이러한 in문법은 리스트, 문자열, 튜플에 모두 사용 가능.
+#dictionary에서 key 혹은 value만 뽑을 때
+  data.keys(), data.values()
+#집합자료형 set
+**중복 제거 가능!!!
