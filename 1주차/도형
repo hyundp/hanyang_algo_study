@@ -50,3 +50,117 @@ start_time = time.time()
 …
 end_time = time.time()
 print(“time : “, end_time - start_time)
+
+p436~
+-pass문 : 아무것도 처리하지 않을때
+
+-파이썬에서는 수학의 부등식을 그대로 사용할 수 있다. 
+
+[3] 반복문 : while, for문 
+
+-continue : 반복문 안에서 continue를 만나면 반복문 처음으로 돌아감 > 다음 숫자 
+
+-2중 반복문 : 플로이드 워셜 알고리즘, 다이나믹 프로그래밍 등에서 쓰임 
+
+[4] 함수 
+-global : 전역변수
+
+-람다 표현식 : 함수를 간단하게 만들때 
+ print((lambda a, b: a+b)(3,7))
+
+[5] 입출력 
+-입력 : input() > 문자열 입력시 정수형으로 바꿀때는 int() 함수 사용
+
+-여러개의 데이터를 입력받아 데이터가 ‘공백’으로 구분되는 경우 
+ list(map(int, input().split())) >> 띄어쓰기로 구분하여 각각 정수 자료형으로 저장
+ >>> input()으로 받은 문자열
+ >>> split()으로 공백으로 나누기 > 리스트
+ >>> map으로 리스트 모든 원소에 int 적용
+ >>> list() 
+
+-‘줄바꿈’ : int(input())을 여러번 사용 
+n = int(input())
+data = list(map(int, input().split()))
+data.sort(reverse = true)
+print(data)
+
+-map : list(map(함수, 리스트)) >> 원본 리스트를 변경하지 않고 새 리스트 생성 
+
+-input 함수는 속도가 느림 > sys 라이브러리의 sys.stdin.readline()함수 
+>>>>import sys
+>>>>sys.stdin.readline().rstrip() // rstrip()은 엔터 공백 제거 
+
+-출력 :print() //기본적으로 출력 이후 줄바꿈
+ 자료형이 다른 경우 콤마로 구분하거나 str()로 묶어준다. 
+ python 3.6이상부터는 f-string 사용가능 
+>>>>answer = 7
+>>>>print(f”정답은 {answer}입니다.”) 
+
+[6] 주요 라이브러리 문법
+-내장 함수 : print(), input(), sorted()…
+-itertools : 순열, 조합
+-heapq : 힙, 우선순위 큐
+-bisect : 이진탐색
+-collections : 덱, 카운터
+-math : 팩토리얼, 제곱근, 최대공약수, 삼각함수, 파이… 
+
+-내장 함수
+ sum() 함수는 iterable 객체가 입력으로 주어지면 자동으로 모든 원소의 합 반환 
+ min() 함수는 파라미터 중 가장 작은 값 반환
+ max() 함수는 파라미터 중 가장 큰 값 반환
+ eval() : 수학 수식이 문자열 형식으로 들어오면 수식 계산 값 반환 
+ sorted() : iterable 객체를 받아서 정렬, key 속성으로 정렬 기준 명시가능, reverse로 차순 결정 
+
+>>>>result = sorted([(‘홍길동’, 35), (‘이순신’, 75), (‘아무개’, 50], key = lambda x:x[1], reverse = true)
+
+-itertools 
+ permutations : 리스트 같은 iterable 객체에서 r개의 데이터를 뽑아 일렬로 나열하는 모든 경우 계산, permutation은 클래스이므로 객체 초기화 이후엔 리스트 자료형으로 변환하여 사용 
+>>>>from itertools import permutations
+>>>>data = [‘a’,’b’,’c’] 
+>>>>result = list(permutations(data,3))
+
+ combinations   
+
+ product : 중복 가능한 순열,  데이터 수를 repeat 속성값으로 넣어줌 repeat = 3
+ 
+ combinations_with_replacement : 중복 조합 
+
+-heapq : 다익스트라 최단경로
+ 파이썬 힙은 최소 힙으로 구성, 단순히 원소를 힙에 전부 넣었다 빼도 O(NlogN) 오름차순 정렬 / 힙의 최상단은 가장 작은 원소 
+ heapq.heappush()
+ heapq.heappop() 
+ 파이썬은 최대힙을 제공하지 않으므로 부호를 바꿔서 구현 
+
+-bisect : 정렬된 배열에서 특정 원소 찾을 때 
+ bisect_left(a, x) : 정렬된 순서를 유지하면서 리스트 a에 데이터 x를 삽입할 가장 왼쪽 인덱스를 찾는다. 
+ 
+ bisect_right() 
+ 둘다 O(logN) / 정렬된 리스트에서 값이 특정 범위에 속하는 원소의 개수 구할 때 사용 
+ 
+ count_by_range(a, left_value, right_value) : 정렬된 리스트에서 left~right사이에 있는 원소의 개수를 O(logN)으로 빠르게 계산 가능. bisect() 이용 
+
+-collections 
+ 
+ deque : 파이썬에서는 queue 라이브러리가 아니라 deque를 이용해서 큐를 구현
+              리스트에서 ‘가장 뒤쪽 원소’를 기준으로 메서드 수행하는 반면 앞쪽에 있는 원소 처리 가능. 스택, 큐 대용으로 사용 / 첫번째 원소 제거시 popleft() 마지막 제거시 pop(), 첫번째 인덱스 삽입시 appendleft(x) 마지막 append(x) 
+
+
+ Counter
+>>>>from collections import Counter
+>>>>counter = Counter([‘red’, ‘blue’, ‘red’, ‘green’, ‘blue’, ‘blue’])
+>>>>print(counter[‘blue’])
+>>>>print(counter[‘green’]
+>>>>print(dict(counter))
+
+3
+1
+{‘red’: 2, ‘blue’:3, ‘green’: 1} 
+
+-math
+>>>>import math 
+>>>>print(math.factorial(5)) 
+
+120 
+
+>>>>import math
+>>>>print(math.sqrt(7)) //7의 제곱근 출력 
