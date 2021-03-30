@@ -1,1 +1,15 @@
-+
+리스트 list()
+append(n) 리스트 마지막에 n 추가
+슬라이싱
+arr[a:b] > a ~ b-1 배열
+
+튜플 자료형 : (데이터, 데이터, … ) 한 번 선언 후 변경 불가
+
+사전 자료형 dict() : <key, value> 쌍으로 구성
+dictionary[key 이름] = value
+keys() : key 리스트 반환
+values() : value 리스트 반환
+
+집합 자료형 : {데이터, 데이터, … } 중복 불가, 순서 없음
+| 합집합 / & 교집합 / - 차집합
+add(), update(), remove()
