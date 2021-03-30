@@ -24,7 +24,89 @@ print(empty_list)
 
 # 2. 리스트 컴프리헨션 사용하는 방법
 
-[ <expression> for <name> in <iterable or sequence> ]
+아래 형식을 따라야한다.
+[ <expression> for <memeber> in <iterable or sequence> ]
+
+1.expression is the member itself, a call to a method, or any other valid expression that returns a value. 
+2.member is the object or value in the list or iterable. 
+3.iterable is a list, set, sequence, generator, or any other object that can return its elements one at a time.
+
+예시1)
+[ 2*i for i in range(10)]
+
+결과)
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+----------------------------------
+예시2)
+a=[1,2,3,4,5]
+[i*i for i in a]
+
+결과)
+[1, 4, 9, 16, 25]
+----------------------------------
+예시3)
+def multiply_and_minus(x):
+    return 2*x-1
+[ multiply_and_minus(i) for i in range(10) ]
+
+결과)
+[-1, 1, 3, 5, 7, 9, 11, 13, 15, 17]
 
 
+그럼 만약 0부터9까지 리스트에 담고 싶은데 딱 숫자 4만 넣기 싫으면 어떻게 해야할까?
+for loop을 사용하면 if n == 4: pass 이런식으로 하면 된다.리
+이제부터 list comprehension 에서 conditional logic에 대해 알아보자.
 
+아래의 형식을 따른다
+
+new_list = [expression for member in iterable (if conditional)]
+
+예시)
+[ i for i in range(10) if i != 4]
+결과)
+[0, 1, 2, 3, 5, 6, 7, 8, 9]
+----------------------------------
+
+예시) 특정한 string에서 영어의 vowels만 뺴고 싶은 경우
+def is_not_vowls(x):
+    vowels='aeiou'
+    return x.isalpha() and x.lower() not in vowels
+    
+sentence='abcedfghijklmnopqrstuvwxyz'
+
+print([i for i in sentence if is_not_vowls(i)])
+
+결과)
+['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
+----------------------------------
+
+if/else를 사용하고 싶다면?
+	
+[<expression> if <condition> else <othe_expression> for <member> in <iterable>]
+
+예시) 숫자 리스트에서 양수(X>0)는 리스트에 포함시키고 음수나 0 은 None 값을 바꾸고 싶은 경우
+number_list=[-1,-2,1,4,-5]
+[x if x>0 else None for x in number_list]
+
+결과)
+[None, None, 1, 4, None]
+
+
+리스트 컴프리헨션 말고도 파이썬에서는 딕셔너리나 컴프리헨션이나 세트 컴프리헨션도 만들 수 있다.
+
+sets comprehension
+예시)
+word='abcabcabc
+{i for i in word}
+
+결과)
+{'c', 'a', 'b'}
+
+dictionary comprehension
+예시)
+
+n=[1,2,3,4,5]
+{i:i*2 for i in n}
+
+결과)
+{1: 2, 2: 4, 3: 6, 4: 8, 5: 10}
