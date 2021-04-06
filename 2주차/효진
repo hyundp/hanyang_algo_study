@@ -1,0 +1,54 @@
+#그리디 학습법: 당장 좋은 것만 선택하는 학습법. 대표적으로 거스름돈이 있다.
+다양한 풀이 방법이 존재할 때, 당장 가장 좋은 방법을 선택하는 것이다.
+
+#큰 수의 법칙
+N=5
+M=7
+K=2
+
+input=[3,4,3,4,3]
+
+input.sort()
+input.reverse()
+
+print(input)
+
+answer=0
+for i in range(K):
+  answer= answer + input[0]
+
+answer=(M//K)*answer+ M%K*input[1]
+print(answer)
+
+
+#숫자 카드 게임
+N = 3
+M = 3
+
+list = [[7,3,1,8],[3,3,3,4]]
+
+list0=[]
+for i in list:
+  i.sort()
+  list0.append(i[0])
+
+list0.sort()
+print(list0[-1])
+
+#1이 될 때까지
+N=25
+K=5
+
+count=0
+
+while True:
+  if N==1:
+    break
+  elif N%K != 0:
+    N=N-1
+    count=count+1
+  elif N%K == 0:
+    N=N//K
+    count=count+1
+
+print(count)
