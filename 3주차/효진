@@ -1,1 +1,63 @@
-ㅁㅁ
+구현: 머릿속에 있는 알고리즘을 소스코드로 바꾸는 과정.
+
+#상하좌우
+i1=int(input())
+print(type(i1))
+ 
+i2=input().split()
+print(i2)
+
+x=1
+y=1
+
+for i in i2:
+  if i == "L":
+    x=x-1
+    if x <1:
+      x=x+1
+  elif i =="R":
+    x=x+1
+    if x >i1:
+      x=x-1
+  elif i == "U":
+    y=y-1
+    if y<1:
+      y=y+1
+  elif i=="D":
+    y=y+1
+    if y>i1:
+      y=y-1
+
+print(y,x)
+
+#시각
+  #처음풀이
+count=0
+a=int(input())
+for h in range(a+1):
+  if "3" in str(h):
+    count=count+1
+  else:
+    for i in range(60):
+      if "3" in str(i):
+        print(i)
+        count=count+1
+      else:
+        for j in range(60):
+          if "3" in str(j):
+            print("its",j)
+            count=count+1
+
+print(count)
+
+ #답
+count=0
+a=int(input())
+for h in range(a+1):
+  for i in range(60):
+    for j in range(60):
+      if "3" in str(h)+str(i)+str(j):
+        count=count+1
+ 
+
+print(count)
