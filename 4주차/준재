@@ -1,0 +1,33 @@
+### 이번 챕터에서는 DFS 와 BFS 에 대해 공부해 보았다.
+### DFS는 Depth for search의 약자로 깊이 우선 탐색이라고 한고
+### BFS 는 Breadth for search 의 약자로 너비 우선 탐색이라고 한다.
+
+DFS는 stack 자료구조를 사용하며 first in last out 을 따른다.
+ 탐색을 시작할 노드를 스택에 집어 넣고 방문 처리 -> 최상단 노드에서 방문하지 않은 인접 노드가 있으면 스택에 넣고 방문 처리 -> 없으면 스택에서 꺼내기
+ DFS는 재귀함수를 사용해서 구현할 수 있는데, 이것은 책에 나와있으므로 재귀함수를 사용하지 않고 구현 해 보았다.
+ 
+def dfs(graph,start):
+    stack=[start]
+    visited=[]
+    while stack:
+        next=stack.pop()
+        if next not in visited:
+            visited.append(next)
+            for i in graph[next][::-1]:
+                if i not in visited:
+                     stack.append(i)
+    return visited
+    
+    
+ BFS는 queue 자료구조를 사용하며 first in first out 을 따른다.
+     
+     
+ ####               DFS      vs      BFS 
+ 
+ 1. 메모리 효율성:   Efficient      Inefficient
+ 2. 구현 방법:      재귀 함수 사용     큐 자료구조
+ 3. Shallowest path   x Guarantee     gurantee
+
+
+
+    
