@@ -1,1 +1,34 @@
 정렬 알고리즘
+
+[선택 정렬] 
+array = [7,5,9,0,3,1,6,2,4,8]
+
+for i in range(len(array)):
+  min_index = i #값이 최소인 데이터 인덱스 
+  for j in range(i+1,len(array)):
+    if array[min_index]>array[j]: 
+      min_index = j #값이 최소인 데이터 인덱스를 찾는 과정 
+  array[i],array[min_index]=array[min_index],array[i] #값이 최소인 인덱스 찾았으면 제일 처음 데이터와 교체
+
+print(array)
+
+[선택정렬 시간복잡도]
+매번 n-1회부터 2까지 비교연산을 해야하므로 O(N^2)
+
+[삽입정렬]
+첫번째 데이터는 그자체로 정렬되어있다고 가정한다. 다음 인덱스부터 앞의 데이터와 비교해서 앞의 데이터가 더 크면 바꿔준다.
+array = [7,5,9,0,3,1,6,2,4,8]
+
+for i in range(1,len(array)):
+  for j in range(i,0,-1): //i부터 0까지 거꾸로 -1 스텝 이동 
+    if array[j-1]>array[j]:
+      array[j-1],array[j]=array[j],array[j-1]
+    else:
+        break
+
+print(array)
+
+[삽입정렬 시간복잡도]
+삽입정렬 시간복잡도는 기본적으로 N^2이지만(for문 두번), 어느정도 정렬된 상태에서는 퀵정렬보다 빠르고 O(N)으로 처리가능하다.
+
+
