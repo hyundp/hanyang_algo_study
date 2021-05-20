@@ -1,0 +1,34 @@
+순차탐색: 앞에서부터 차례대로 데이터를 확인하는 방법, 시간 복잡도는 O(N)
+
+이진탐색: 찾는 데이터와 middle 에 있는 데이터를 반복적으로 비교하는 방법, 정렬되어 있는 데이터에만 가능한 알고리즘. 시간 복잡도는 O(logN).
+
++반복문으로 구현한 이진탐색
+>> def binary_search(array, target, start, end):
+      while start <= end:
+        mid = (start+end)//2
+        if array[mid] == target:
+          return mid
+        elif array[mid] >= target:
+          end = mid - 1
+        else:
+          start = mid + 1
+        return None
+        
+   n, target = list(map(int, input().split()))
+   array=list(map(int, input().split()))
+   result=binary_search(array, target, 0, n-1)
+   if result == None:
+    print("원소가 존재하지 않습니다.")
+   else:
+    print(result+1)
+    
+트리 자료구조: 대용량 데이터 처리에 적합한 그래프 자료구조
+
+입력 데이터가 많은 문제에는 sys 라이브러리의 readline() 사용!
+
+>>import sys
+  input_data = sys.stdin.readline().rstrip()
+  
+  print(input_data)
+  
+*rstrip() 은 줄바꿈 기호 삭제용
