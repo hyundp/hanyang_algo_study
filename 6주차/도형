@@ -1,1 +1,22 @@
+#이진탐색 코드
 
+def binary_search(array,target,start,end):
+    if start > end:
+        return None
+    mid = (start+end) // 2 #중간지점 인덱스 찾기, 몫으로 찾아서 소수점 없애기
+    
+    if array[mid] == target:
+        return mid
+    elif array[mid] > target:
+        return binary_search(array,target,start,mid-1)
+        
+n, target = list(map(int, input().split())) # input.split으로 여러 값을 받아서 map으로 int 변환해준다음 list만들기
+
+array = list(map(int, input().split()))
+
+result = binary_search(array,target,0,n-1)
+if result == None:
+    print("원소가 존재하지 않습니다")
+    
+else:
+    print(result+1)#result는 인덱스이므로 +1해줘야 몇번째인지 알 수 있음 
