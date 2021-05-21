@@ -1,0 +1,22 @@
+<이진탐색>
+
+이진탐색은 long(n)의 시간 복잡도를 가진 탐색기법이다.
+데이터가 정렬되어 있지 않다면 사용할수 없겠지만, 데이터가 이미 정렬되어 있는 상태라면 굉장히 효과적으로 작동한다.
+
+재귀함수로 구현하기
+ def binary_search(array,target,start,end):
+     if start > end:
+         return None
+     mid=(start-end)//2
+     if array[mid] == target:
+         return mid
+     elif array[mid] > target:
+         return binary_search(array,target,start,mid-1)
+     else:
+         return binary_search(array,target,mid+1,end)
+ 
+<이진 탐색 트리>
+
+트리를 기반으로한 탐색 방법으로 왼쪽 노트는 부모노드보다 작고 오른쪽 노드는 부모노드 보다 큰 특성이 있다.
+찾고자하는 원소의 값이 루트노드 보다 크면 오른쪽 노드로 이동하고 작으면 왼쪽 노드로 이동하는 것을 반복한다.
+
